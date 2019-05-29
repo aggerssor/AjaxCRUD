@@ -1,0 +1,61 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cafe.jjdev.AjaxCRUD.mapper.MemberMapper">
+    
+  <!--   회원전체리스트 메서드  -->
+    <select id="selectMemberList" parameterType="java.util.Map" resultType="cafe.jjdev.AjaxCRUD.vo.Member">
+        SELECT 
+            id
+            ,pw
+            ,name
+            ,age
+            ,gender
+        FROM member
+   		LIMIT 
+        	#{beginRow}, #{rowPerPage} 
+    </select>
+    
+    <!-- 회원가입 매서드 -->
+    <insert id="insertMember" parameterType="cafe.jjdev.AjaxCRUD.vo.Member">
+        INSERT INTO member(
+            id
+            ,pw
+            ,name
+            ,age
+            ,gender
+        ) VALUES (
+            #{id}
+            ,#{pw}
+            ,#{name}
+            ,#{age}
+            ,#{gender}
+        )
+    </insert>
+    
+    <!-- 회원삭제 매서드 -->
+    <delete id="deleteMember" parameterType="cafe.jjdev.AjaxCRUD.vo.Member">
+        DELETE FROM 
+            member 
+        WHERE id=#{id}
+    </delete>
+    
+    <!-- 회원정보수정 매서드 -->
+    <update id="updateMember" parameterType="cafe.jjdev.AjaxCRUD.vo.Member">
+        UPDATE member 
+        SET pw=#{pw}
+            ,name=#{name}
+            ,age=#{age}
+            ,gender=#{gender}
+        WHERE id=#{id}
+    </update>
+    
+    <select id="countMember" resultType="Integer">
+    	SELECT
+			COUNT(*)
+		FROM
+			member
+    </select>
+</mapper>
+
+
