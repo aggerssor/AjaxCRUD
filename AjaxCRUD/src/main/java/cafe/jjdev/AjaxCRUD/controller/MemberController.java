@@ -17,7 +17,7 @@ public class MemberController {
     @Autowired 
     private MemberService memberService;
     
-    
+    //멤버 리스트 페이징
     @GetMapping("/getMembers")
     public Map<String, Object> getMembers(@RequestParam(value="currentPage") int currentPage ){ 
 	

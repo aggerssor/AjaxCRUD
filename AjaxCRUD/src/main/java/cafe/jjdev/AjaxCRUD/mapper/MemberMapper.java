@@ -17,8 +17,6 @@ public interface MemberMapper {
 	public int deleteMember(Member member);
 	//회원수정
 	public int updateMember(Member member);
-	//회원리스트 페이징을 위한
-		
 	// 라스트 페이지를 구하기 위해 전체 행의 수를 가져오는 메소드
 	public int countMember();
 }

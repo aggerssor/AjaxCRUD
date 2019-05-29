@@ -50,6 +50,7 @@
         WHERE id=#{id}
     </update>
     
+    <!-- 전체멤버수 조회메서드 -->
     <select id="countMember" resultType="Integer">
     	SELECT
 			COUNT(*)
