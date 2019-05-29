@@ -19,7 +19,7 @@ public class MemberController {
     
     
     @GetMapping("/getMembers")
-    public Map<String, Object> getMembers(@RequestParam(value="currentPage") int currentPage ){ //값이 없으면 첫페이지는 1페이지로 고정
+    public Map<String, Object> getMembers(@RequestParam(value="currentPage") int currentPage ){ 
 	
 		System.out.println("[currentPage MemberController ]"+currentPage);
 		System.out.println("/getMembers 요청");
@@ -38,7 +38,7 @@ public class MemberController {
     
     //멤버삭제
     @PostMapping("/removeMember")
-    public void removeMember(@RequestParam(value="ck[]") String[] ck) { // List<String> ck
+    public void removeMember(@RequestParam(value="ck[]") String[] ck) { 
          System.out.println("/removeMember 요청");
         System.out.println(ck);
         for(String id : ck) {
